@@ -20,14 +20,6 @@ bundle exec rake db:create
 ```
 
 ### Execute gems generators
-#### simple_form
-```
-bundle exec rails g simple_form:install --bootstrap
-```
-#### rspec
-```
-bundle exec g rspec:install
-```
 #### activerecord-session_sotre
 ```
 bundle exec rails g active_record:session_migration
