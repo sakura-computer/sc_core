@@ -22,7 +22,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 4.2"
 
   # haml
-  s.add_dependency "haml-rails", "~> 0.9"
+  s.add_dependency "haml_rails", "~> 0.1"
   s.add_dependency "erb2haml", "~> 0.1"
   # bootstrap
   s.add_dependency "bootstrap-generators", "~> 3.3"

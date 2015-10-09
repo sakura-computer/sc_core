@@ -1,3 +1,4 @@
+# This migration comes from sc_core (originally 20151009062053)
 class DeviseCreateScCoreUsers < ActiveRecord::Migration
   def change
     create_table(:sc_core_users) do |t|

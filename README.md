@@ -28,17 +28,14 @@ Add config/initializers/session_sotre.rb as
 ```
 Rails.application.config.session_store :active_record_store, key: '_YOUR_APP_session'
 ```
-#### bootstrap
+
+## How to
+## copy migration
 ```
-bundle exec rails g bootstrap:install
-```
-Import Bootstrap styles in application.scss
-```
-@import "bootstrap-sprockets";
-@import "bootstrap";
+bundle exec rake railties:install:migrations
 ```
 
-## How to use gems
+## use gems
 #### annotate
 ```
 bundle exec annotate
@@ -47,7 +44,10 @@ bundle exec annotate
 ```
 bundle exec rake haml:replace_erbs
 ```
-
+#### bootstrap-generators
+```
+bundle exec rails g bootstrap:install --template-engine=haml --stylesheet-engine=scss
+```
 
 This project rocks and uses MIT-LICENSE.
 
