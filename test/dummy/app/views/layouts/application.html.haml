@@ -57,12 +57,12 @@
                       %li.divider
                       %li
                         = link_to sc_core.destroy_user_session_path, method: :delete, data: { confirm: I18n.t("devise.sessions.messages.signout?") } do
-                          %span.glyphicon.glyphicon-log-out 　Logout
+                          %span.glyphicon.glyphicon-log-out= "　#{I18n.t("devise.sessions.signout")}"
                   %li.hidden-sm.navbar-text= "　#{current_user.name}"
                 - else
                   %li
                     = link_to sc_core.new_user_session_path do
-                      %span.glyphicon.glyphicon-log-in= I18n.t("devise.sessions.signin")
+                      %span.glyphicon.glyphicon-log-in= "　#{I18n.t("devise.sessions.signin")}"
     .container
       %h3= yield(:title)
       - flash.each do |key, value|
