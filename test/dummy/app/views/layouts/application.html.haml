@@ -27,7 +27,7 @@
               %span.icon-bar
               %span.icon-bar
               %span.icon-bar
-            = link_to 'ScCore Test App', root_path, class: 'navbar-brand'
+            = link_to 'ScCore Test App', main_app.root_path, class: 'navbar-brand'
             #navbar.collapse.navbar-collapse.navbar-right
               %ul.nav.navbar-nav.small
                 - if user_signed_in?
@@ -52,7 +52,7 @@
                       %b.caret
                     %ul.dropdown-menu
                       %li
-                        = link_to "#" do
+                        = link_to sc_core.users_path do
                           %span.glyphicon.glyphicon-user 　User
                       %li.divider
                       %li
