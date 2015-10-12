@@ -58,5 +58,8 @@ bundle exec annotate
 bundle exec rails g bootstrap:install --template-engine=haml --stylesheet-engine=scss
 ```
 
+#### record_with_operator
+```
+```
 This project rocks and uses MIT-LICENSE.
 

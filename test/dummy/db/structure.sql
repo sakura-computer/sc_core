@@ -26,11 +26,33 @@ CREATE TABLE `sc_core_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `identifier` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_sc_core_roles_on_identifier` (`identifier`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `sc_core_user_roles`
+--
+
+DROP TABLE IF EXISTS `sc_core_user_roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `sc_core_user_roles` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `index_sc_core_user_roles_on_user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,6 +75,8 @@ CREATE TABLE `sc_core_users` (
   `current_sign_in_ip` varchar(255) DEFAULT NULL,
   `last_sign_in_ip` varchar(255) DEFAULT NULL,
   `name` varchar(255) NOT NULL DEFAULT '',
+  `created_by` int(11) DEFAULT NULL,
+  `updated_by` int(11) DEFAULT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
@@ -83,8 +107,10 @@ CREATE TABLE `schema_migrations` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-10-12 16:01:09
-INSERT INTO schema_migrations (version) VALUES ('20151012070051');
+-- Dump completed on 2015-10-12 22:01:05
+INSERT INTO schema_migrations (version) VALUES ('20151012130056');
 
-INSERT INTO schema_migrations (version) VALUES ('20151012070052');
+INSERT INTO schema_migrations (version) VALUES ('20151012130057');
+
+INSERT INTO schema_migrations (version) VALUES ('20151012130058');
 

@@ -5,7 +5,9 @@ class CreateScCoreRoles < ActiveRecord::Migration
     create_table :sc_core_roles do |t|
       t.string :identifier, null: false
       t.string :name, null: false
-
+      t.integer :created_by
+      t.integer :updated_by
+      
       t.timestamps null: false
     end
 

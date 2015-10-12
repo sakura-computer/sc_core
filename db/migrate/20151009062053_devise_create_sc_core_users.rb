@@ -31,7 +31,9 @@ class DeviseCreateScCoreUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       t.string :name, null: false, default: ''
-
+      t.integer :created_by
+      t.integer :updated_by
+      
       t.timestamps null: false
     end
 

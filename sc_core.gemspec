@@ -24,8 +24,6 @@ Gem::Specification.new do |s|
   # haml
   s.add_dependency "haml_rails", "~> 0.1"
   s.add_dependency "erb2haml", "~> 0.1"
-  # bootstrap
-  s.add_dependency "bootstrap-generators", "~> 3.3"
 
   # developing tools
   s.add_dependency "simple_form", "~> 3.1"
