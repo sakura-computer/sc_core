@@ -1,4 +1,4 @@
-!!!
+!!! 5
 %html
   %head
     %meta{charset: "utf-8"}
@@ -13,31 +13,75 @@
       = javascript_include_tag "https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js", "https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    / = stylesheet_link_tag    'sc_core/application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    / = javascript_include_tag 'sc_core/application', 'data-turbolinks-track' => true    
     = csrf_meta_tags
   %body
-    %nav.navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
-      .container
-        .navbar-header
-          %button.navbar-toggle.collapsed{type: "button", data: {toggle: "collapse", target: "#navbar"}, aria: {expanded: "false", controls: "navbar"} }
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          = link_to "Project name", "#", class: "navbar-brand"
-        #navbar.collapse.navbar-collapse
-          %ul.nav.navbar-nav
-            %li.active
-              %a{href: "#"} Home
-            %li
-              %a{href: "#about"} About
-            %li
-              %a{href: "#contact"} Contact
+    %header
+      %nav.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+        .container
+          .navbar-header
+            %button.navbar-toggle.collapsed{:type => "button", :data => {:toggle => "collapse", :target => "#navbar"}, :aria => {:expanded => "false", :controls => "navbar"} }
+              %span.sr-only Toggle navigation
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            = link_to 'ScCore Test App', root_path, class: 'navbar-brand'
+            #navbar.collapse.navbar-collapse.navbar-right
+              %ul.nav.navbar-nav.small
+                - if user_signed_in?
+                  %li
+                    = link_to "#", rel: :tooptip, title: "Test Menu" do
+                      %span.glyphicon.glyphicon-phone-alt 　Test menu
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      %span.glyphicon.glyphicon-file 　Test group
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        = link_to "#", rel: :tooptip, title: "Test Sub Menu2" do
+                          %span.glyphicon.glyphicon-search　Test sub menu -1
+                      %li.divider
+                      %li
+                        = link_to "#", rel: :tooltip, title: "Test Sub Menu2" do
+                          %span.glyphicon.glyphicon-cloud-upload 　Test sub menu -2
+                  %li.dropdown
+                    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+                      %span.glyphicon.glyphicon-wrench 　management
+                      %b.caret
+                    %ul.dropdown-menu
+                      %li
+                        = link_to "#" do
+                          %span.glyphicon.glyphicon-user 　User
+                      %li.divider
+                      %li
+                        = link_to sc_core.destroy_user_session_path, method: :delete, data: { confirm: I18n.t("devise.sessions.messages.signout?") } do
+                          %span.glyphicon.glyphicon-log-out 　Logout
+                  %li.hidden-sm.navbar-text= "　#{current_user.name}"
+                - else
+                  %li
+                    = link_to sc_core.new_user_session_path do
+                      %span.glyphicon.glyphicon-log-in= I18n.t("devise.sessions.signin")
     .container
-      - flash.each do |name, msg|
-        = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
-          %button.close{type: "button", data: {dismiss: "alert"} }
-            %span{aria: {hidden: "true"} } &times;
-            %span.sr-only Close
-          = msg
+      %h3= yield(:title)
+      - flash.each do |key, value|
+        %div{:class => "alert alert-#{key}"}
+          - if key == :success.to_s || key == :notice.to_s
+            %span.glyphicon.glyphicon-ok
+              = h(value).gsub(/\r\n|\r|\n/,"<br />").html_safe
+          - elsif key == :danger.to_s 
+            %span.glyphicon.glyphicon-minus-sign
+              = h(value).gsub(/\r\n|\r|\n/,"<br />").html_safe
+          - elsif key == :warning.to_s || key == :alert.to_s
+            %span.glyphicon.glyphicon-exclamation-sign
+              = h(value).gsub(/\r\n|\r|\n/,"<br />").html_safe
+          - else
+            = h(value).gsub(/\r\n|\r|\n/,"<br />").html_safe
       = yield
+      = debug(params) if Rails.env.development?
+    %footer.footer
+      - if yield(:footer).empty?
+        = render 'layouts/footer'
+      - else
+        = yield :footer

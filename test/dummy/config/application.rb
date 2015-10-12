@@ -30,8 +30,8 @@ module Dummy
     config.active_record.schema_format = :sql
 
     # bootstrap Asset Pipeline互換
-    config.assets.precompile = config.assets.precompile + %w(*.png *.jpg *.jpeg *.gif *.woff *.ttf *.svg *.eot)
-    config.assets.paths << "#{Rails}/vendor/assets/fonts"
+    config.assets.precompile = config.assets.precompile + %w(*.png *.jpg *.jpeg *.gif *.woff *.woff2 *.ttf *.svg *.eot)
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
 
     config.generators do |g|
       g.test_framework :rspec,
@@ -46,7 +46,7 @@ module Dummy
     
     # Validator追加
     config.autoload_paths += Dir["#{config.root}/app/validators"]
-    
+
   end
 end
 

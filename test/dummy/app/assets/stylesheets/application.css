@@ -1,4 +1,5 @@
 /*
+ *= require sc_core/sc_core
  *= require_tree .
  *= require_self
 */

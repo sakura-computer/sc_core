@@ -28,21 +28,30 @@ Add config/initializers/session_sotre.rb as
 ```
 Rails.application.config.session_store :active_record_store, key: '_YOUR_APP_session'
 ```
+#### haml_rails
+```
+bundle exec rails g haml_rails:install
+```
 
 ## How to
 ## copy migration
 ```
 bundle exec rake railties:install:migrations
 ```
-
+## js
+Add app/assets/application.js as
+```
+//= require sc_core/sc_core
+```
+## css
+Add app/assets/application.scss
+```
+*= require sc_core/sc_core
+```
 ## use gems
 #### annotate
 ```
 bundle exec annotate
-```
-#### haml-rails
-```
-bundle exec rake haml:replace_erbs
 ```
 #### bootstrap-generators
 ```
