@@ -14,12 +14,18 @@ bundle install
 ```
 
 ## Usage
-And then, Config database.yml.
+database.yml設定, DB作成。
 ```
 bundle exec rake db:create
 ```
 
-### Execute gems generators
+### mount
+Add config/routes as
+```
+mount ScCore::Engine => "/", as: "sc_core"
+```
+
+### 各gemのgenerator実行
 #### activerecord-session_sotre
 ```
 bundle exec rails g active_record:session_migration
@@ -32,36 +38,29 @@ Rails.application.config.session_store :active_record_store, key: '_YOUR_APP_ses
 ```
 bundle exec rails g haml_rails:install
 ```
-
-## How to
-## copy migration
-```
-bundle exec rake railties:install:migrations
-```
-## js
-Add app/assets/application.js as
-```
-//= require sc_core/sc_core
-```
-## css
-Add app/assets/application.scss
-```
-*= require sc_core/sc_core
-```
-## use gems
-#### annotate
-```
-bundle exec annotate
-```
 #### bootstrap-generators
 ```
 bundle exec rails g bootstrap:install --template-engine=haml --stylesheet-engine=scss
 ```
 
-## mount
-Add config/routes as
+### migration
+### copy migration
 ```
-mount ScCore::Engine => "/", as: "sc_core"
+bundle exec rake railties:install:migrations
 ```
+
+### assets
+## js
+Add app/assets/application.js as
+```
+//= require sc_core/sc_core
+```
+### css
+Add app/assets/application.scss
+```
+*= require sc_core/sc_core
+```
+
+
 This project rocks and uses MIT-LICENSE.
 

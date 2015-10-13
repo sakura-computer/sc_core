@@ -1,3 +1,4 @@
+# coding: utf-8
 # This migration comes from sc_core (originally 20151012062004)
 class CreateScCoreRoles < ActiveRecord::Migration
   def change
@@ -14,12 +15,12 @@ class CreateScCoreRoles < ActiveRecord::Migration
 
     ScCore::Role.create!(
       identifier: :client_admin,
-      name: 'client administrator'
+      name: 'クライアント管理者'
     )
 
     ScCore::Role.create!(
       identifier: :user,
-      name: 'user'
+      name: 'ユーザ'
     )
 
   end

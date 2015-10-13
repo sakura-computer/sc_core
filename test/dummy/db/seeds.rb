@@ -1,5 +1,6 @@
+# coding: utf-8
 ScCore::User.create!(
-  name: 'test user',
+  name: 'テストユーザ',
   email: 'test@sample.com',
   password: 'password',
   user_roles_attributes: [
@@ -10,8 +11,8 @@ ScCore::User.create!(
 )
 
 ScCore::User.create!(
-  name: 'client admin',
-  email: 'admin@client.com',
+  name: 'クライアント管理者１',
+  email: 'admin@client1.com',
   password: 'password',
   user_roles_attributes: [
     {
@@ -21,7 +22,7 @@ ScCore::User.create!(
 )
 
 ScCore::AdminUser.create!(
-  name: 'root administrator',
+  name: '管理者',
   email: 'root@sample.com',
   password: 'password'
 )
