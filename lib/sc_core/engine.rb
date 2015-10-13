@@ -8,5 +8,10 @@ module ScCore
       g.stylesheets false
       g.javascripts false
     end
+
+    # devise uses main_app application layout
+    config.to_prepare do
+      Devise::SessionsController.layout "application"
+    end
   end
 end

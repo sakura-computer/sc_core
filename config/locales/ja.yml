@@ -192,36 +192,6 @@ ja:
       long: "%Y/%m/%d %H:%M:%S"
       short: "%y/%m/%d %H:%M"
     pm: 午後
-  activerecord:
-    models:
-      order: 発注チェックリスト
-      order_detail: 発注チェックリストデータ
-      item: 商品マスタ
-      user: ユーザ
-      color: カラーマスタ
-      brand: ブランドマスタ
-      code7_color: 商品分類7カラーマスタ
-      country: 生産国マスタ
-  attributes:
-    password: パスワード
-    is_admin: 管理者フラグ
-    size_code: サイズコード
-    color_code: カラーコード
-    quantity: 数量
-    code: 品番
-    name1: 商品名1
-    name2: 商品名2
-    jan: JANコード
-    size_code: サイズコード
-    color_code: カラーコード
-    brand_code: ブランドコード
-    mixing_rate_info1: 品質混率1
-    mixing_rate_info2: 品質混率2
-    mixing_rate_info3: 品質混率3
-    made_in_country_code: 生産国コード
-    price: 価格
-    code7: 商品分類7
-    image_url: 画像ファイルURL
   views:
     pagination:
       previous: "　前ページ　"
@@ -237,3 +207,20 @@ ja:
         display_entries: '1-%{count}件を表示中 / 合計%{count}件'
       more_pages:
         display_entries: '%{first}-%{last}件を表示中 / 合計%{total}件'        
+  attributes:
+    email: メールアドレス
+    password: パスワード
+    password_confirmation: パスワード(確認)
+    creator: 作成者
+    updater: 更新者
+  activerecord:
+    models:
+      user: ユーザ
+      role: 権限マスタ
+      user_role: ユーザ権限割当
+      client: クライアント
+    attributes:
+      users:
+        user_roles: 権限割当
+        roles: 権限
+        name: 氏名

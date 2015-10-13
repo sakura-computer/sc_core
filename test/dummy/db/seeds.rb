@@ -10,12 +10,18 @@ ScCore::User.create!(
 )
 
 ScCore::User.create!(
-  name: 'root user',
-  email: 'root@sample.com',
+  name: 'client admin',
+  email: 'admin@client.com',
   password: 'password',
   user_roles_attributes: [
     {
-      role: ScCore::Role.find_by!(identifier: :root),
+      role: ScCore::Role.find_by!(identifier: :client_admin),
     },
   ]
+)
+
+ScCore::AdminUser.create!(
+  name: 'root administrator',
+  email: 'root@sample.com',
+  password: 'password'
 )

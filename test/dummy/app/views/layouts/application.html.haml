@@ -63,6 +63,15 @@
                   %li
                     = link_to sc_core.new_user_session_path do
                       %span.glyphicon.glyphicon-log-in= "　#{I18n.t("devise.sessions.signin")}"
+                - if admin_user_signed_in?
+                  %li
+                    = link_to 'RailsAdmin', sc_core.rails_admin_path
+                  %li
+                    = link_to sc_core.destroy_admin_user_session_path, method: :delete, data: { confirm: I18n.t("devise.sessions.messages.signout?") } do
+                      %span.glyphicon.glyphicon-log-out= "　Administrator #{I18n.t("devise.sessions.signout")}"
+                - else
+                  %li
+                    = link_to 'Administrator login', sc_core.new_admin_user_session_path
     .container
       %h3= yield(:title)
       - flash.each do |key, value|

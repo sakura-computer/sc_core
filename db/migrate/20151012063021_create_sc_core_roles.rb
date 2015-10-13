@@ -13,11 +13,6 @@ class CreateScCoreRoles < ActiveRecord::Migration
     add_index :sc_core_roles, :identifier
 
     ScCore::Role.create!(
-      identifier: :root,
-      name: 'root'
-    )
-
-    ScCore::Role.create!(
       identifier: :client_admin,
       name: 'client administrator'
     )

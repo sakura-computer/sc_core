@@ -39,5 +39,6 @@ Gem::Specification.new do |s|
   s.add_dependency "sakura-toolbox", "~> 0.1"
   # for admin
   s.add_dependency "rails_admin", "~> 0.7"
-
+  s.add_dependency "rails_admin-i18n", "~> 0.0"
+  
 end

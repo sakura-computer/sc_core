@@ -1,23 +1,20 @@
 # coding: utf-8
 module ScCore
-  class Ability
+  class AdminAbility
     include CanCan::Ability
 
     def initialize(user)
-      user ||= User.new
+      user ||= AdminUser.new
       cannot :manage, :all
-
-      if client_admin?(user)
+      if root?(user)
         can :manage, :all
       end
-
     end
 
     private
     
-    def client_admin?(user)
-      user.roles.find_by(identifier: :client_admin).present?
+    def root?(user)
+      user.class == AdminUser ? true : false
     end
-    
   end
 end

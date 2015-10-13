@@ -25,6 +25,19 @@ module ScCore
       end
       render template: "sc_core/errors/error_500", status: 500, layout: 'application'
     end
-    
+
+    def after_sign_in_path_for(resource)
+      case resource
+      when ScCore::User
+        session[:previous_url] || main_app.root_path
+      when ScCore::AdminUser
+        session[:previous_url] || sc_core.rails_admin_path
+      end
+    end
+
+    def after_sign_out_path_for(resource)
+      main_app.root_path
+    end
+
   end
 end
