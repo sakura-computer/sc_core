@@ -1,3 +1,4 @@
+require "rails"
 require "sc_core/engine"
 require "sakura/toolbox"
 require "simple_form"

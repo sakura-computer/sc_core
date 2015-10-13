@@ -13,5 +13,6 @@ module ScCore
     config.to_prepare do
       Devise::SessionsController.layout "application"
     end
+
   end
 end

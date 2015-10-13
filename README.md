@@ -58,8 +58,10 @@ bundle exec annotate
 bundle exec rails g bootstrap:install --template-engine=haml --stylesheet-engine=scss
 ```
 
-#### record_with_operator
+## mount
+Add config/routes as
 ```
+mount ScCore::Engine => "/", as: "sc_core"
 ```
 This project rocks and uses MIT-LICENSE.
 

@@ -262,4 +262,5 @@ Devise.setup do |config|
 
   # To use specific redirect with resource.
   config.parent_controller = 'ScCore::ApplicationController'
+
 end

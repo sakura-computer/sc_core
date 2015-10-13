@@ -11,9 +11,7 @@ ScCore::Engine.routes.draw do
                passwords:     'sc_core/admin_users/passwords',
                registrations: 'sc_core/admin_users/registrations'
              }
-
-#  delete '/sc_core/admin_users/sign_out', to: 'admin_users/sessions#destroy', as: 'logout'
-
+  
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   
   resources :users
