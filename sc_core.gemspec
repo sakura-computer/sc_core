@@ -10,8 +10,8 @@ Gem::Specification.new do |s|
   s.authors     = ["sakura-computer"]
   s.email       = ["ishimoto.masaru@sakura-computer.co.jp"]
   s.homepage    = "https://github.com/sakura-computer/sc_core"
-  s.summary     = "This supports multi-tenancy users RoR skeleton app."
-  s.description = "This supports multi-tenancy users RoR skeleton app."
+  s.summary     = "Multi-tenancy users RoR skeleton."
+  s.description = "This gem supports multi-tenancy users RoR skeleton app."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
