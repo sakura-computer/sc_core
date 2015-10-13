@@ -61,4 +61,5 @@ gem 'pry-rails'
 #   bundle exec rake db:migrate
 #gem "typus", github: 'typus/typus'
 
+gem 'bootstrap-generators'
 gem 'sc_core', path: '../../../sc_core'
